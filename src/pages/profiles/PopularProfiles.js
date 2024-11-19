@@ -1,38 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import appStyles from '../../App.module.css';
 import { Container } from 'react-bootstrap';
-import { axiosReq } from '../../api/axiosDefaults';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Asset from '../../components/Asset';
 import Profile from './Profile';
+import { useProfileData } from '../../contexts/ProfileDataContext';
 
 const PopularProfiles = ({mobile}) => {
-    const [profileData, setProfileData] = useState({
-        // we will use the pageProfile later
-        pageProgile: {results:[]},
-        PopularProfiles: {results:[]},
-    });
-
-    const {PopularProfiles} = profileData;
-    const currentUser = useCurrentUser();
-
-    useEffect(() => {
-        const handleMount = async () => {
-            try {
-                const {data} = await axiosReq.get(
-                    '/profiles/?ordering=-followers_count'
-                );
-                setProfileData(prevState => ({
-                    ...prevState,
-                    PopularProfiles: data,
-                }));
-            } catch (err) {
-                console.log(err);
-            }
-    };
-
-        handleMount();
-    }, [currentUser]);
+    const {PopularProfiles} = useProfileData();
 
 
     return (
