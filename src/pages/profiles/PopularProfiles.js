@@ -6,8 +6,7 @@ import Profile from './Profile';
 import { useProfileData } from '../../contexts/ProfileDataContext';
 
 const PopularProfiles = ({mobile}) => {
-    const {PopularProfiles} = useProfileData();
-
+    const { popularProfiles } = useProfileData();
 
     return (
         <Container 
@@ -15,17 +14,17 @@ const PopularProfiles = ({mobile}) => {
             ${mobile && 'd-lg-none text-center mb-3'
             }`}
         >
-            {PopularProfiles.results.length ? (
+            {popularProfiles.results.length ? (
                 <>
                 <p>Most followed profiles.</p>
                 {mobile ? (
                     <div className='d-flex justify-content-around'>
-                        {PopularProfiles.results.slice(0, 4).map(profile=>(
+                        {popularProfiles.results.slice(0, 4).map(profile=>(
                             <Profile key={profile.id} profile={profile} mobile />
                         ))}
                     </div>
                 ) : (
-                    PopularProfiles.results.slice(0, 4).map(profile=>(
+                    popularProfiles.results.slice(0, 4).map(profile=>(
                         <Profile key={profile.id} profile={profile} />
                     ))
                 )}
