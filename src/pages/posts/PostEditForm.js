@@ -15,7 +15,6 @@ import { Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router";
-import axios from "axios";
 
 function PostEditForm() {
     const [errors, setErrors] = useState({});
