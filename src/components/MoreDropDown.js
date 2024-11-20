@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { Dropdown } from "react-bootstrap";
+import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../../src/styles/MoreDropDown.module.css";
 
 // The forwardRef is important!!

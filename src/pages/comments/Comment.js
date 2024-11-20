@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
 import Avatar from "../../components/Avatar";
 import { MoreDropDown } from "../../components/MoreDropDown";
 import styles from "../../styles/Comment.module.css";
@@ -40,7 +40,7 @@ const Comment = (props) => {
                 results: prevComments.results.filter((comment) => comment.id !== id),
                 }));
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
             };
 
